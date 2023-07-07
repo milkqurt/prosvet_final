@@ -126,13 +126,14 @@
     var message = document.getElementById('message').value;
   
     // Формирование текста сообщения для WhatsApp
-    var whatsappMessage = 'Имя: ' + name + '\n' +
+    var whatsappMessage = 'Заказ сформирован от:' + '\n' +
+                          'Имя: ' + name + '\n' +
                           'Адрес: ' + email + '\n' +
                           'Телефон: ' + phone + '\n' +
                           'Сообщение: ' + message;
   
     // Генерация ссылки для отправки сообщения в WhatsApp с номером получателя
-    var recipientNumber = '87006984028'; // Замените на номер получателя WhatsApp
+    var recipientNumber = '+77006984028'; // Замените на номер получателя WhatsApp
     var whatsappURL = 'https://wa.me/' + recipientNumber + '?text=' + encodeURIComponent(whatsappMessage);
   
     // Открытие ссылки в новой вкладке или окне
