@@ -67,7 +67,7 @@
         <nav class="navbar navbar-expand-lg custom_nav-container ">
           <a class="navbar-brand" href="index.html">
             <span>
-              ТМ PROSVET
+              PROSVET
             </span>
           </a>
 
@@ -97,15 +97,7 @@
               </li>
             </ul>
             <div class="user_option-box">
-              <a href="">
-                <i class="fa fa-user" aria-hidden="true"></i>
-              </a>
-              <a href="">
-                <i class="fa fa-cart-plus" aria-hidden="true"></i>
-              </a>
-              <a href="">
-                <i class="fa fa-search" aria-hidden="true"></i>
-              </a>
+
             </div>
           </div>
         </nav>
@@ -126,7 +118,7 @@
       <div class="search-container">
         <input type="text" id="searchInput" class="search-input" placeholder="Поиск по названию">
       </div>
-      <div class="row">
+      <div class="row" id="productContainer">
         <div class="col-sm-6 col-xl-3" onclick="copyText(this)">
           <div class="box">
             <a href="">
@@ -355,7 +347,7 @@
         </div>
       </div>
 
-      <div class="row">
+      <div class="row" id="productContainer">
         <div class="col-sm-6 col-xl-3" onclick="copyText(this)">
           <div class="box">
             <a href="">
@@ -590,7 +582,7 @@
         </div>
       </div>
 
-      <div class="row">
+      <div class="row" id="productContainer">
         <div class="col-sm-6 col-xl-3" onclick="copyText(this)">
           <div class="box">
             <a href="">
@@ -804,7 +796,7 @@
         </div>
       </div>
 
-      <div class="row">
+      <div class="row" id="productContainer">
         <div class="col-sm-6 col-xl-3" onclick="copyText(this)">
           <div class="box">
             <a href="">
@@ -1014,7 +1006,7 @@
         </div>
       </div>
 
-      <div class="row">
+      <div class="row" id="productContainer">
         <div class="col-sm-6 col-xl-3" onclick="copyText(this)">
           <div class="box">
             <a href="">
@@ -1225,7 +1217,7 @@
         </div>
       </div>
 
-      <div class="row">
+      <div class="row" id="productContainer">
         <div class="col-sm-6 col-xl-3" onclick="copyText(this)">
           <div class="box">
             <a href="">
@@ -1434,7 +1426,7 @@
         </div>
       </div>
 
-      <div class="row">
+      <div class="row" id="productContainer">
         <div class="col-sm-6 col-xl-3" onclick="copyText(this)">
           <div class="box">
             <a href="">
@@ -1642,7 +1634,7 @@
         </div>
       </div>
 
-      <div class="row">
+      <div class="row" id="productContainer">
         <div class="col-sm-6 col-xl-3" onclick="copyText(this)">
           <div class="box">
             <a href="">
@@ -1848,7 +1840,7 @@
         </div>
       </div>
 
-      <div class="row">
+      <div class="row" id="productContainer">
         <div class="col-sm-6 col-xl-3" onclick="copyText(this)">
           <div class="box">
             <a href="">
@@ -2081,50 +2073,32 @@
         </script>
       <script>
   function searchProducts() {
-    var input = document.getElementById("searchInput");
-    var filter = input.value.toUpperCase();
+    var input = document.getElementById("searchInput").value.toUpperCase();
     var container = document.getElementById("productContainer");
-    var cards = container.getElementsByClassName("card");
+    var cards = container.getElementsByClassName("col-sm-6 col-xl-3");
 
+    var found = false;
     for (var i = 0; i < cards.length; i++) {
-      var title = cards[i].getElementsByTagName("h4")[0];
-      var textValue = title.innerText || title.textContent;
+      var span = cards[i].querySelector(".detail-box span");
+      var textValue = span.innerText || span.textContent;
 
-      if (textValue.toUpperCase().indexOf(filter) > -1) {
-        cards[i].style.display = "";
+      if (textValue.toUpperCase().indexOf(input) > -1) {
+        cards[i].style.display = "block";
+        found = true;
       } else {
         cards[i].style.display = "none";
-}
-}
-}
+      }
+    }
 
-var searchInput = document.getElementById("searchInput");
-searchInput.addEventListener("keyup", searchProducts);
+    if (!found) {
+      // Показать сообщение или выполнить другие действия, если нет совпадающих результатов
+    }
+  }
+
+  var searchInput = document.getElementById("searchInput");
+  searchInput.addEventListener("keyup", searchProducts);
 </script>
       <div class="btn-box_2">
-        <script>
-          function searchProducts() {
-            var input = document.getElementById("searchInput");
-            var filter = input.value.toUpperCase();
-            var container = document.getElementById("productContainer");
-            var cards = container.getElementsByClassName("card");
-          
-            for (var i = 0; i < cards.length; i++) {
-              var title = cards[i].getElementsByTagName("h4")[0];
-              var textValue = title.innerText || title.textContent;
-          
-              if (textValue.toUpperCase().indexOf(filter) > -1) {
-                cards[i].style.display = "";
-              } else {
-                cards[i].style.display = "none";
-        }
-        }
-        }
-        
-        var searchInput = document.getElementById("searchInput");
-        searchInput.addEventListener("keyup", searchProducts);
-        </script>
-        
         <div class="button-container">
           <a href="/price.pdf" class="button" download>СКАЧАТЬ ЭЛЕКТРОННЫЙ КАТАЛОГ</a>
         </div>
