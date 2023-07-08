@@ -86,6 +86,9 @@
                             <a class="nav-link" href="index.html">Главная</a>
                         </li>
                         <li class="nav-item">
+                            <a class="nav-link" href="panels.html">Панели </span></a>
+                        </li>
+                        <li class="nav-item">
                             <a class="nav-link" href="watches.html">Светильники </span></a>
                         </li>
                         <li class="nav-item">
@@ -123,6 +126,7 @@
                 <input type="text" id="searchInput" class="search-input" placeholder="Поиск по названию">
             </div>
         </div>
+
         <div class="row" id="productContainer">
             <div class="col-sm-6 col-xl-3" onclick="copyText(this)">
                 <div class="box">
@@ -346,59 +350,68 @@
                 </div>
             </div>
             <script>
-            function copyText(element) {
-              // Получить текст из элемента
-              var text = element.innerText.trim();
-          
-              // Создать временный элемент input для копирования текста
-              var input = document.createElement('input');
-              input.setAttribute('value', text);
-              document.body.appendChild(input);
-          
-              // Выполнить команду копирования
-              input.select();
-              document.execCommand('copy');
-          
-              // Удалить временный элемент
-              document.body.removeChild(input);
-          
-              // Опционально, вы можете предпринять другие действия после копирования
-              alert('Текст скопирован!');
+
+
+    function copyText(element) {
+        // Code for copying text
+        // ...
+    }
+
+    function searchProducts() {
+        var input = document.getElementById("search
+
+    function copyText(element) {
+        // Code for copying text
+        // ...
+    }
+
+    function searchProducts() {
+        var input = document.getElementById("searchInput").value.toUpperCase();
+        var container = document.getElementById("productContainer
+
+    function copyText(element) {
+        // Code for copying text
+        // ...
+    }
+
+    function searchProducts() {
+        var input = document.getElementById("searchInput").value.toUpperCase();
+        var container = document.getElementById("productContainer");
+        var cards = container.getElementsByClassName("
+
+    function copyText(element) {
+        // Code for copying text
+        // ...
+    }
+
+    function searchProducts() {
+        var input = document.getElementById("searchInput").value.toUpperCase();
+        var container = document.getElementById("productContainer");
+        var cards = container.getElementsByClassName("col-sm-6");
+
+        var found = false;
+        for (var i = 0; i < cards.length; i++) {
+            var span = cards[i].querySelector(".detail-box span");
+            var textValue = span.innerText || span.textContent;
+
+            if (textValue.toUpperCase().indexOf(input) > -1) {
+                cards[i].style.display = "block";
+                found = true;
+            } else {
+                cards[i].style.display = "none";
             }
+        }
 
-            </script>
-            <script>
-  function searchProducts() {
-    var input = document.getElementById("searchInput").value.toUpperCase();
-    var container = document.getElementById("productContainer");
-    var cards = container.getElementsByClassName("col-sm-6 col-xl-3");
-
-    var found = false;
-    for (var i = 0; i < cards.length; i++) {
-      var span = cards[i].querySelector(".detail-box span");
-      var textValue = span.innerText || span.textContent;
-
-      if (textValue.toUpperCase().indexOf(input) > -1) {
-        cards[i].style.display = "block";
-        found = true;
-      } else {
-        cards[i].style.display = "none";
-      }
+        if (!found) {
+            // Show a message or perform other actions if no matching results are found
+        }
     }
 
-    if (!found) {
-      // Показать сообщение или выполнить другие действия, если нет совпадающих результатов
-    }
-  }
-
-  var searchInput = document.getElementById("searchInput");
-  searchInput.addEventListener("keyup", searchProducts);
-
-            </script>
+    var searchInput = document.getElementById("searchInput");
+    searchInput.addEventListener("keyup", searchProducts);
+</script>
 
             <div class="btn-box_2">
-
-
                 <div class="button-container">
                     <a href="/price.pdf" class="button" download>СКАЧАТЬ ЭЛЕКТРОННЫЙ КАТАЛОГ</a>
                 </div>
